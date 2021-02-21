@@ -1,6 +1,7 @@
 //@prepros-append ibg.js
 //@prepros-append slider.js
 //@prepros-append animScroll.js
+//@prepros-append validation.js
 
 const menuIcon = document.querySelector('.header__icon'),
       menuBody = document.querySelector('.header__body');
@@ -31,33 +32,35 @@ for (let i = 0; i < img.length; i++) {
 
 let num = 0;
 
-menu[0].classList.add('active');
+document.addEventListener('DOMContentLoaded', function() {
+   menu[0].classList.add('active');
 
-for (let i = 0; i < menu.length; i++) {
-   menu[i].addEventListener('click', function (e) {
-      for (let k = 0; k < menu.length; k++) {
-         menu[k].classList.remove('active');
-      }
-      console.log(e.target.id)
-      menu[i].classList.add('active');
-      for (let j = 0; j < img.length; j++) {
-         if (img[j].classList.contains(e.target.id)) {
-            item[j].style.display = 'block';
-            num += 1;
-         } else {
-            item[j].style.display = 'none';
+   for (let i = 0; i < menu.length; i++) {
+      menu[i].addEventListener('click', function (e) {
+         for (let k = 0; k < menu.length; k++) {
+            menu[k].classList.remove('active');
          }
-      }
-      if (num == 1) {
-         next.style.display = 'none';
-         prev.style.display = 'none';
-      } else {
-         num = 0;
-         next.style.display = 'block';
-         prev.style.display = 'block';
-      }
-   });
-}
+         console.log(e.target.id)
+         menu[i].classList.add('active');
+         for (let j = 0; j < img.length; j++) {
+            if (img[j].classList.contains(e.target.id)) {
+               item[j].style.display = 'block';
+               num += 1;
+            } else {
+               item[j].style.display = 'none';
+            }
+         }
+         if (num == 1) {
+            next.style.display = 'none';
+            prev.style.display = 'none';
+         } else {
+            num = 0;
+            next.style.display = 'block';
+            prev.style.display = 'block';
+         }
+      });
+   }
+});
 
 const activateModal = () => {
    modal.style.display = 'block';
