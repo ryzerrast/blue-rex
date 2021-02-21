@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
       input.parentElement.classList.remove('_error');
       input.classList.remove('_error');
    }
+   // Функция теста email
    function emailTest(input) {
       return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
    }
@@ -64,3 +65,4 @@ document.addEventListener('DOMContentLoaded', function () {
          return true;
       }
    }
+});
